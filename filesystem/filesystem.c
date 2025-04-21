@@ -794,7 +794,7 @@ static void FS_ParseGenericGameInfo( gameinfo_t *GameInfo, const char *buf, cons
 					// This was made because Half-Life has multiplayer,
 					// but for some reason it's marked as singleplayer_only.
 					// Old WON version is fine.
-					if( !Q_stricmp( GameInfo->gamefolder, "valve") )
+					if( !Q_stricmp( GameInfo->gamefolder, "portal") )
 						GameInfo->gamemode = GAME_NORMAL;
 					else
 						GameInfo->gamemode = GAME_SINGLEPLAYER_ONLY;
@@ -906,7 +906,7 @@ static void FS_ParseGenericGameInfo( gameinfo_t *GameInfo, const char *buf, cons
 				// This was made because Half-Life has multiplayer,
 				// but for some reason it's marked as singleplayer_only.
 				// Old WON version is fine.
-				if( !Q_stricmp( token, "singleplayer_only" ) && Q_stricmp( GameInfo->gamefolder, "valve") )
+				if( !Q_stricmp( token, "singleplayer_only" ) && Q_stricmp( GameInfo->gamefolder, "portal") )
 					GameInfo->gamemode = GAME_SINGLEPLAYER_ONLY;
 				else if( !Q_stricmp( token, "multiplayer_only" ))
 					GameInfo->gamemode = GAME_MULTIPLAYER_ONLY;
@@ -1439,7 +1439,7 @@ static qboolean FS_FindLibrary( const char *dllname, qboolean directpath, fs_dll
 		len = FS_StripIdiotRelativePath( dllname, GI->gamefolder );
 
 		if( len == 0 ) // or put relative path to Half-Life game libs
-			len = FS_StripIdiotRelativePath( dllname, "valve" );
+			len = FS_StripIdiotRelativePath( dllname, "portal" );
 		start += len;
 	}
 
